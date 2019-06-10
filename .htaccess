@@ -1,0 +1,46 @@
+php_flag apc.cache_by_default Off
+<IfModule mod_rewrite.c>
+    php_flag display_errors On
+    
+    Options -Indexes
+    RewriteEngine on
+    
+    #AllowOverride All
+
+    #RewriteBase /
+
+    #RedirectMatch 403 ^/(libraries).*$
+
+    # Antes de redireccionar, se verifica que la petición no sea a un directorio o archivo existente
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    #RewriteCond %{REQUEST_FILENAME} !-l
+
+    # Si el archivo/directorio no existe, redireccionamos
+    RewriteRule ^(.*)$ index.php/$1 [L]
+</IfModule>
+
+<IfModule mod_headers.c> 
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "sameorigin
+  Header set X-Content-Type-Options "nosniff"
+  Header set Strict-Transport-Security "max-age=31536000"
+  #precaución al usarlo
+  #Header set Content-Security-Policy "default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';"
+
+  Header set Public-Key-Pins "pin-sha256=\"153fbc40ded95af9794f4455ce9a689c106f610c=\"; pin-sha256=\"zsdvzdmBFdl/oEkV15Ltj/mkvJy85ZGt7Dc8nagCmEXD8TxRSe6QOI9r0pSSWIYE3suRsCzu6IdBIlJ3c9509PyFkdJyS2hgS/t3QgHcNJQ=\"; max-age=604800;
+
+  Header set Referrer-Policy "origin-when-cross-origin"
+  Header set Expect-CT "max-age=7776000, enforce"
+</IfModule>
+
+
+<FilesMatch "\.(html|htm|js|css)$">
+FileETag None
+  <ifModule mod_headers.c>
+  Header unset ETag
+  Header set Cache-Control "max-age=0, no-cache, no-store, must-revalidate"
+  Header set Pragma "no-cache"
+  Header set Expires "Sun, 05 Abr 2019 05:00:00 GMT"
+  </ifModule>
+</FilesMatch>

@@ -1,0 +1,20 @@
+{
+    "name": "rino/system",
+    "description": "Rino Framework package",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Lenin Larry",
+            "email": "leninlarry96@gmail.com"
+        }
+    ],
+    "keywords": [
+        "framework",
+        "rino"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Rino\\": "rino/system"
+        }
+    }
+}

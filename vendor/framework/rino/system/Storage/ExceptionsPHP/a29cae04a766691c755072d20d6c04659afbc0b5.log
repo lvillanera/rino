@@ -1,0 +1,4 @@
+[Date: 2019-06-03 11:34:31][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Svc\Headers.php, in 16]:Call to a member function see() on null	
+[Date: 2019-06-03 11:35:02][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Svc\Headers.php, in 15]:Call to a member function see() on null	
+[Date: 2019-06-03 11:35:07][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Svc\Headers.php, in 15]:Call to a member function see() on null	
+[Date: 2019-06-03 11:44:45][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Svc\Headers.php, in 16]:Call to undefined function App\Main\Fe\Svc\ul()	
