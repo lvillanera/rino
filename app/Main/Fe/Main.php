@@ -11,8 +11,6 @@ class Main
     public function render()
     {
     	$view = new \Rino\Rain\View();
-
-    	$view->vars($set);
         echo $view->see(dirname(__FILE__).DS."tpl".DS."main.html");
     }
 

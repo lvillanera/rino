@@ -52,6 +52,7 @@ class PublicKey
     public function generateKeys(array $options = self::DEFAULT_PUBLIC_KEY_OPTIONS)
     {
         $keys = openssl_pkey_new($options);
+        
         $this->publicKey = openssl_pkey_get_details($keys)["key"];
         openssl_pkey_export($keys, $this->privateKey);
         openssl_pkey_free($keys);

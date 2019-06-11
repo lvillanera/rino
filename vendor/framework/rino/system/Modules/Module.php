@@ -57,17 +57,17 @@ class Module
      * 3 = Local Auth
      */
 
-	public function addModule($modules,$typeAuht = 0,$uriPage = '',$extraData = NULL)
+	public function addModule($modname,$typeAuht = 0,$uriPage = '',$extraData = NULL)
 	{
 		$arguments	=	(object)array
 						(
-							'modName'=>$modules,
+							'modName'=>$modname,
 							'authType'=>$typeAuht,
 							'index_page'=>$uriPage,
 							'extra'=>$extraData
 						);
 
-		$this->_modules[$modules] = $arguments;
+		$this->_modules[$modname] = $arguments;
 	}
 
 

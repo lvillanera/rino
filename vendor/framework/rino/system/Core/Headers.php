@@ -7,6 +7,16 @@ use Rino\Request\Request;
 class Headers
 {
 
+	/*
+		@param string useragent
+		return (Object) array(
+			'userAgent' => $u_agent,
+			'name' => $bname,
+			'version' => $version,
+			'platform' => $platform,
+			'pattern' => $pattern,
+		);
+	*/
 	public static function get_browser_name($user_agent = '') {
 		$u_agent = $user_agent;
 		$bname = 'No Encontrado';
@@ -69,22 +79,48 @@ class Headers
 		);
 	}
 	
-
+	/**
+	 * @void 
+	 * return String
+	 * 
+	 */
 	public static function city_language()
 	{
 		return trim(substr(Request::server("HTTP_ACCEPT_LANGUAGE"),3 , 2));
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function http_referrer()
 	{
 		return trim(Request::server("HTTP_REFERRER"));
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * retornará el lenguaje del navegador del usuario
+	 * 
+	 */
 	public static function language_navigator()
 	{
 		return trim(substr(Request::server("HTTP_ACCEPT_LANGUAGE"),0 , 2));
 	}
 
+	
+	/**
+	 * @void
+	 * return object
+	 * object(
+	 * lower=>"a",
+	 * upper=>"A",
+	 * normal=>"A|a"
+	 * )
+	 * 
+	 */
 	public static function http_x_requested_with()
 	{
 		return array_to_object(array(
@@ -94,37 +130,72 @@ class Headers
 				));
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function http_x_forwarded_for()
 	{
 		return Request::server("HTTP_X_FORWARDED_FOR");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function remote_addr()
 	{
 		return Request::server("REMOTE_ADDR");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function http_user_agent()
 	{
 		return Request::server("HTTP_USER_AGENT");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function http_host()
 	{
 		return Request::server("HTTP_HOST");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function remote_port()
 	{
 		return Request::server("REMOTE_PORT");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function request_uri()
 	{
 		return Request::server("REQUEST_URI");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function request_method()
 	{
@@ -132,17 +203,32 @@ class Headers
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function http_referer()
 	{
 		return Request::server("HTTP_REFERER");
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function wprotocol()
 	{
 		return Request::server("WPROTOCOL");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function http_accept_language()
 	{
@@ -150,59 +236,109 @@ class Headers
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function redirect_status()
 	{
 		return Request::server("REDIRECT_STATUS");
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function http_connection()
 	{
 		return Request::server("HTTP_CONNECTION");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function http_cache_control()
 	{
 		return Request::server("HTTP_CACHE_CONTROL");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function http_accept()
 	{
 		return Request::server("HTTP_ACCEPT");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function http_accept_encoding()
 	{
 		return Request::server("HTTP_ACCEPT_ENCODING");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function http_cookie()
 	{
 		return htmlspecialchars(Request::server("HTTP_COOKIE"));
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function path()
 	{
 		return Request::server("PATH");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function redirect_wprotocol()
 	{
 		return Request::server("REDIRECT_WPROTOCOL");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function server_signature()
 	{
 		return Request::server("SERVER_SIGNATURE");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function server_software()
 	{
@@ -210,23 +346,43 @@ class Headers
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function server_name()
 	{
 		return Request::server("SERVER_NAME");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function server_addr()
 	{
 		return Request::server("SERVER_ADDR");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function server_port()
 	{
 		return Request::server("SERVER_PORT");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function server_admin()
 	{
@@ -234,11 +390,21 @@ class Headers
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function script_filename()
 	{
 		return Request::server("SCRIPT_FILENAME");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function redirect_url()
 	{
@@ -246,23 +412,43 @@ class Headers
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function gateway_interface()
 	{
 		return Request::server("GATEWAY_INTERFACE");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function query_string()
 	{
 		return Request::server("QUERY_STRING");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function script_name()
 	{
 		return Request::server("SCRIPT_NAME");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function path_info()
 	{
@@ -270,11 +456,21 @@ class Headers
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function path_translated()
 	{
 		return Request::server("PATH_TRANSLATED");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function php_self()
 	{
@@ -282,11 +478,21 @@ class Headers
 	}
 
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 	public static function request_time()
 	{
 		return Request::server("REQUEST_TIME");
 	}
 
+	/**
+	 * @void
+	 * return string
+	 * 
+	 */
 
 	public static function request_time_float()
 	{

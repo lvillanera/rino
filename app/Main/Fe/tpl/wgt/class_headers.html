@@ -1,30 +1,339 @@
+<style>
+li{
+	list-style: none;
+	padding:10px;
+	background:#0000000d;
+	margin:9px auto;
+}
+
+
+
+</style>
 <!-- Top header -->
-<div class="row">
-	<div class="col">
-		<h2>Clase Header</h2>
-	</div>
-</div>
-
-<!-- Product grid -->
-
-<div class="row">
-	<div class="col">
-		<h4>Describiendo la clase header (Independiente)</h4>
-	</div>
-	<div class="col">
-		<p><b>Métodos</b></p>
-		<div class="form-group">
-			{loop="$elements"}
-			{$value["item"]}
-			{/loop}
+<div class="container">
+	<div class="col-lg-12">
+		<div class="col-6">
+			<div class="row">
+				<div class="col">
+					<h2>Clase Header</h2>
+				</div>
+			</div>
+			
+			<!-- Product grid -->
+			
+			<div class="row">
+				<div class="col">
+					<h4>Describiendo la clase header (Independiente)</h4>
+				</div>
+				<div class="col">
+					<p><b>Métodos</b></p>
+					<ul>
+						<div class="form-group">
+							<li >
+								<a href="#get_browser_name" class="selector" data-resumen="get_browser_name"
+									rel="noopener noreferrer">get_browser_name</a>
+								<ul>
+									<li id="get_browser_name">
+										<pre class="line-numbers language-css" data-start="0">
+										    <code class="language-css">
+												@param string useragent
+												return (Object) array(
+												'userAgent' => $u_agent,
+												'name' => $bname,
+												'version' => $version,
+												'platform' => $platform,
+												'pattern' => $pattern,
+												);
+											</code>
+										</pre>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#city_language" class="selector" data-resumen="city_language"
+									rel="noopener noreferrer">city_language</a>
+								<ul>
+									<li id="city_language">
+										<pre class="line-numbers language-css" data-start="0">
+											<code class="language-css">
+												return string
+											</code>
+										</pre>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#http_referrer" class="selector" data-resumen="http_referrer"
+									rel="noopener noreferrer">http_referrer</a>
+								<ul>
+									<li id="http_referrer"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#language_navigator" class="selector" data-resumen="language_navigator"
+									rel="noopener noreferrer">language_navigator</a>
+								<ul>
+									<li id="language_navigator"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#http_x_requested_with" class="selector" data-resumen="http_x_requested_with"
+									rel="noopener noreferrer">http_x_requested_with</a>
+								<ul>
+									<li id="http_x_requested_with"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#http_x_forwarded_for" class="selector" data-resumen="http_x_forwarded_for"
+									rel="noopener noreferrer">http_x_forwarded_for</a>
+								<ul>
+									<li id="http_x_forwarded_for"></li>
+								</ul>
+								</li>
+							
+								<li><a href="#remote_addr" class="selector" data-resumen="remote_addr" rel="noopener noreferrer">remote_addr</a>
+							
+							<ul>
+								<li id="remote_addr"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#http_user_agent" class="selector" data-resumen="http_user_agent"
+									rel="noopener noreferrer">http_user_agent</a>
+							<ul>
+								<li id="http_user_agent"></li>
+							</ul>	
+							
+								</li>
+							<li><a href="#http_host" class="selector" data-resumen="http_host" rel="noopener noreferrer">http_host</a>
+							<ul>
+								<li id="http_host"></li>
+							</ul>
+							</li>
+							
+							<li><a href="#remote_port" class="selector" data-resumen="remote_port" rel="noopener noreferrer">remote_port</a>
+							
+							<ul>
+								<li id="remote_port"></li>
+							</ul>
+							</li>
+							
+							<li><a href="#request_uri" class="selector" data-resumen="request_uri" rel="noopener noreferrer">request_uri</a>
+							
+							<ul>
+								<li id="request_uri"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#request_method" class="selector" data-resumen="request_method"
+									rel="noopener noreferrer">request_method</a>
+								<ul>
+									<li id="request_method"></li>
+								</ul>
+								</li>
+							
+								<li><a href="#http_referer" class="selector" data-resumen="http_referer" rel="noopener noreferrer">http_referer</a>
+							
+							<ul>
+								<li id="http_referer"></li>
+							</ul>
+							
+							</li>
+							<li><a href="#wprotocol" class="selector" data-resumen="wprotocol" rel="noopener noreferrer">wprotocol</a>
+							<ul>
+								<li id="wprotocol"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#http_accept_language" class="selector" data-resumen="http_accept_language"
+									rel="noopener noreferrer">http_accept_language</a>
+								<ul>
+									<li id="http_accept_language"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#redirect_status" class="selector" data-resumen="redirect_status"
+									rel="noopener noreferrer">redirect_status</a>
+								<ul>
+									<li id="redirect_status"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#http_connection" class="selector" data-resumen="http_connection"
+									rel="noopener noreferrer">http_connection</a>
+								<ul>
+									<li id="http_connection"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#http_cache_control" class="selector" data-resumen="http_cache_control"
+									rel="noopener noreferrer">http_cache_control</a>
+								<ul>
+									<li id="http_cache_control"></li>
+								</ul>
+								</li>
+							
+								<li><a href="#http_accept" class="selector" data-resumen="http_accept" rel="noopener noreferrer">http_accept</a>
+							
+							<ul>
+								<li id="http_accept"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#http_accept_encoding" class="selector" data-resumen="http_accept_encoding"
+									rel="noopener noreferrer">http_accept_encoding</a>
+								<ul>
+									<li id="http_accept_encoding"></li>
+								</ul>
+								</li>
+							
+								<li><a href="#http_cookie" class="selector" data-resumen="http_cookie" rel="noopener noreferrer">http_cookie</a>
+							
+							<ul>
+								<li id="http_cookie"></li>
+							</ul>
+							
+							</li>
+							<li><a href="#path" class="selector" data-resumen="path" rel="noopener noreferrer">path</a>
+							<ul>
+								<li id="path"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#redirect_wprotocol" class="selector" data-resumen="redirect_wprotocol"
+									rel="noopener noreferrer">redirect_wprotocol</a>
+								<ul>
+									<li id="redirect_wprotocol"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#server_signature" class="selector" data-resumen="server_signature"
+									rel="noopener noreferrer">server_signature</a>
+								<ul>
+									<li id="server_signature"></li>
+								</ul>
+								</li>
+							<li>
+								<a href="#server_software" class="selector" data-resumen="server_software"
+									rel="noopener noreferrer">server_software</a>
+								<ul>
+									<li id="server_software"></li>
+								</ul>
+								</li>
+							
+								<li><a href="#server_name" class="selector" data-resumen="server_name" rel="noopener noreferrer">server_name</a>
+							
+							<ul>
+								<li id="server_name"></li>
+							</ul>
+							</li>
+							
+							<li><a href="#server_addr" class="selector" data-resumen="server_addr" rel="noopener noreferrer">server_addr</a>
+							
+							<ul>
+								<li id="server_addr"></li>
+							</ul>
+							</li>
+							
+							<li><a href="#server_port" class="selector" data-resumen="server_port" rel="noopener noreferrer">server_port</a>
+							
+							<ul>
+								<li id="server_port"></li>
+							</ul>
+							</li>
+							
+							<li><a href="#server_admin" class="selector" data-resumen="server_admin" rel="noopener noreferrer">server_admin</a>
+							
+							<ul>
+								<li id="server_admin"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#script_filename" class="selector" data-resumen="script_filename"
+									rel="noopener noreferrer">script_filename</a>
+								<ul>
+									<li id="script_filename"></li>
+								</ul>
+								</li>
+							
+								<li><a href="#redirect_url" class="selector" data-resumen="redirect_url" rel="noopener noreferrer">redirect_url</a>
+							
+							<ul>
+								<li id="redirect_url"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#gateway_interface" class="selector" data-resumen="gateway_interface"
+									rel="noopener noreferrer">gateway_interface</a>
+								<ul>
+									<li id="gateway_interface"></li>
+								</ul>
+								</li>
+							
+								<li><a href="#query_string" class="selector" data-resumen="query_string" rel="noopener noreferrer">query_string</a>
+							
+							<ul>
+								<li id="query_string"></li>
+							</ul>
+							</li>
+							
+							<li><a href="#script_name" class="selector" data-resumen="script_name" rel="noopener noreferrer">script_name</a>
+							
+							<ul>
+								<li id="script_name"></li>
+							</ul>
+							
+							</li>
+							<li><a href="#path_info" class="selector" data-resumen="path_info" rel="noopener noreferrer">path_info</a>
+							<ul>
+								<li id="path_info"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#path_translated" class="selector" data-resumen="path_translated"
+									rel="noopener noreferrer">path_translated</a>
+							<ul>
+								<li id="path_translated"></li>
+							</ul>	
+							
+								</li>
+							<li><a href="#php_self" class="selector" data-resumen="php_self" rel="noopener noreferrer">php_self</a>
+							<ul>
+								<li id="php_self"></li>
+							</ul>
+							</li>
+							
+							<li><a href="#request_time" class="selector" data-resumen="request_time" rel="noopener noreferrer">request_time</a>
+							
+							<ul>
+								<li id="request_time"></li>
+							</ul>
+							</li>
+							<li>
+								<a href="#request_time_float" class="selector" data-resumen="request_time_float"
+									rel="noopener noreferrer">request_time_float</a>
+								<ul>
+									<li id="request_time_float"></li>
+								</ul>
+								</li>
+						</div>
+					</ul>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
 
-<!-- Subscribe section -->
-<!-- <div class="w3-container w3-black w3-padding-32">
-<h1>Subscribe</h1>
-<p>To get special offers and VIP treatment:</p>
-<p><input class="w3-input w3-border" type="text" placeholder="Enter e-mail" style="width:100%"></p>
-<button type="button" class="w3-button w3-red w3-margin-bottom">Subscribe</button>
-</div> -->
+<script>
+	reloadjs();
+$(document).ready(function($){
+	$(".selector").on("click",function(e){
+		$("#identifier_method").html('<b>'+ $(this).data("resumen")+'</b>');
+	});
+
+	
+});
+
+
+
+</script>

@@ -10,6 +10,14 @@ class Session
 
 	protected $arrayconfig;
 
+	
+	/**
+	 * @void
+	 * @param array config
+	 * return this
+	 * 
+	 */
+
 	public function config($params='')
 	{
 		if(is_array($params))
@@ -22,6 +30,15 @@ class Session
 
 		return $this;
 	}
+
+
+	
+	/**
+	 * @void
+	 * Inicia con la carga de la sesión
+	 * return null
+	 * 
+	 */
 
 	public function start()
 	{
@@ -102,6 +119,12 @@ class Session
 	}
 
 
+	/**
+	 * @void
+	 * @param key session
+	 * return bool
+	 * 
+	 */
 	public function session_exist($key = '')
 	{
 		if(!is_array($key))
@@ -111,12 +134,25 @@ class Session
 
 	}
 
+	
+	/**
+	 * @void
+	 * return array
+	 * 
+	 */
 
 	public function getAll()
 	{
 		return $_SESSION;
 	}
 
+
+	/**
+	 * @void
+	 * @param key session
+	 * return null
+	 * 
+	 */
 
 	public function quit($key = '')
 	{
@@ -134,6 +170,12 @@ class Session
 	}
 
 
+	/**
+	 * @void
+	 * @param namesession,values
+	 * return this
+	 * 
+	 */
 	public function set($nameSession = 'default',$values = NULL)
 	{
 				
@@ -160,6 +202,12 @@ class Session
 
 
 
+	/**
+	 * @void
+	 * @param key,values
+	 * return null
+	 * 
+	 */
 	public function pushIn($key='',$values = '')
 	{
 		$this->__push($key,$values);
@@ -192,15 +240,37 @@ class Session
 		}
 	}
 
+	
+	/**
+	 * @void getObject
+	 * @param key session
+	 * return object
+	 * 
+	 */
+
 	public function getObject($key='')
 	{
 		return (($key != '') ? array_to_object($_SESSION[$key]):array_to_object($_SESSION));
 	}
 
+	/**
+	 * @void getArray
+	 * @param key session
+	 * return array
+	 * 
+	 */
+
 	public function getArray($key='')
 	{
 		return (($key != '') ? convertObjectToArray($_SESSION[$key],false) : convertObjectToArray($_SESSION,false) );
 	}
+
+	/**
+	 * @void valFrom
+	 * @param key(session),index (default)
+	 * return String
+	 * 
+	 */
 
 	public function valFrom($key='',$index = 'default')
 	{
@@ -214,6 +284,13 @@ class Session
 	}
 
 
+	/**
+	 * @void get
+	 * @param name(session)
+	 * return String
+	 * 
+	 */
+
 	public function get($name='')
 	{
 		if (!empty($name)) {
@@ -221,10 +298,22 @@ class Session
 		}
 	}
 
+	/**
+	 * @void id
+	 * return null
+	 * 
+	 */
 	public function id()
 	{
 		return session_id();
 	}
+
+	/**
+	 * @void destroy
+	 * @param name(session)
+	 * return bool
+	 * 
+	 */
 
 	public function destroy($name='')
 	{
@@ -252,7 +341,12 @@ class Session
 		return true;
 	}
 
-
+/**
+	 * @void set_iterator
+	 * @param key(session),data
+	 * return this
+	 * 
+	 */
 	public function set_iterator($key='',$data)
 	{
 		$itemsCount = count($_SESSION[$key]);

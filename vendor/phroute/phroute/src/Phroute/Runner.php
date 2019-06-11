@@ -62,24 +62,24 @@ class Runner
     {
     	$path_masked = (isset($this->config->backend_url)?$this->config->backend_url:'');
     	$this->_path_masked = $path_masked;
-			if((bool)$this->config->add_logs)
-			{
-				\Rino\Core\DbLog::addRegister();
-			}
+		if((bool)$this->config->add_logs)
+		{
+			\Rino\Core\DbLog::addRegister();
+		}
     	$this->main_view = $this->pageHome->home;
     	$this->is_masked_uri = 'Fe';
-			if (!is_array(UriParser(1))) {
-				if (strtolower(UriParser(1)) === $path_masked) {
-					$this->is_masked_uri = 'Be';
-					$this->runApp($path_masked);
-				} else {
-
-					$this->runApp();
-				}
+		if (!is_array(UriParser(1))) {
+			if (strtolower(UriParser(1)) === $path_masked) {
+				$this->is_masked_uri = 'Be';
+				$this->runApp($path_masked);
 			} else {
 
 				$this->runApp();
 			}
+		} else {
+
+			$this->runApp();
+		}
 
 		$this->_load_package();
 		
@@ -195,7 +195,6 @@ class Runner
 	{
 		if((bool)$this->config->init_modules) {
 			$modulos = new \Rino\Modules\Module();
-			$modulos->capture();
 		}
 	}
 
