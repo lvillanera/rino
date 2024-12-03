@@ -249,7 +249,7 @@ if (!function_exists('prmUri')) {
 		$uri = '/' . trim($uri, '/');
 		$routes = explode('/', $uri);
 
-		if ($key != "") {
+		if ($key != "" && isset($routes[$key])) {
 			$indice = $routes[$key];
 			if (!empty($indice)) 
 			{
@@ -548,6 +548,90 @@ if (!function_exists('cut_string')) {
 	}
 }
 
+if(!function_exists('extractBase64AndHeader')) {
+	function extractBase64AndHeader(string $dataUrl) {
+		try {
+			if (strpos($dataUrl, ';base64,') !== false) {
+				list($header, $base64) = explode(';base64,', $dataUrl, 2);
+			} else {
+				return array("header" => "", "base64"=> "");
+			}
+		
+			return array(
+				'header' => "$header;base64,",
+				'base64' => $base64,
+			);
+		} catch (\Throwable $th) {
+			print_r($th);
+		}
+	}
+}
+
+if(!function_exists('compress_image')) {
+	function compress_image(string $tempImage, int $jpegQuality = 80, int $pngCompression = 6, bool $hasBase64String = true): string {
+		$tmpStart = "";
+		$imageData = "";
+	
+		if ($hasBase64String) {
+			$tmp = extractBase64AndHeader($tempImage);
+			$tmpStart = $tmp['header'];// data:image/jpeg;base64,
+			$base64Image = $tmp['base64'];
+	
+			// Decodificar Base64
+			$imageData = base64_decode($base64Image);
+			if ($imageData === false) {
+				return $imageData;
+			}
+		} else {
+			$imageData = $tempImage;
+			$tmpStart = "";
+		}
+	
+		if (!$imageData) {
+			return $imageData;
+		}
+	
+		// Validar datos de la imagen
+		$imageInfo = getimagesizefromstring($imageData);
+		if (!$imageInfo) {
+			return $imageData;
+		}
+	
+		$mime = $imageInfo['mime'];
+	
+		// Crear imagen desde los datos binarios
+		$image = imagecreatefromstring($imageData);
+		if (!$image) {
+			return $imageData;
+		}
+	
+		ob_start();
+		switch ($mime) {
+			case 'image/jpeg':
+				imagejpeg($image, null, $jpegQuality);
+				break;
+			case 'image/png':
+				imagepng($image, null, $pngCompression);
+				break;
+			case 'image/gif':
+				imagegif($image);
+				break;
+			default:
+				return $imageData;
+		}
+	
+		$compressedImage = ob_get_clean();
+		imagedestroy($image);
+	
+		if (!$compressedImage) {
+			return $imageData;
+		}
+	
+		return $tmpStart . base64_encode($compressedImage);
+	}
+	
+}
+
 /*
  *
  *
@@ -673,6 +757,23 @@ if (!function_exists('redirect')) {
 		exit;
 	}
 }
+
+if (!function_exists('convertDateToString')) {
+	function convertDateToString($fecha) {
+		$date = new DateTime($fecha);
+		$meses = [
+			1 => 'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+			'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'
+		];
+		$dia = $date->format('d');
+		$mes = $meses[(int)$date->format('m')];
+		$anio = $date->format('Y');
+	
+		return "$dia de $mes de $anio";
+	}
+	
+}
+
 
 if (!function_exists('to_utf8')) {
 	

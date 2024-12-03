@@ -40,7 +40,7 @@
 	/*
 		*
 		*
-		*	Si se desea usar otra aplicacion dentro de nuestra aplicacion
+		*	Si se desea usar el admin dentro de nuestra aplicacion
 		*	Entonces se debe colocar el nombre de la ruta 
 		*	Esta ruta apuntara a la carpeta 'Be'
 		*

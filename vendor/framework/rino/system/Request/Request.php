@@ -124,6 +124,18 @@ class Request
 		return sendJson((array_key_exists($key, $input)?array_to_object(array($key=>$input[$key])):array_to_object($input)));
 	}
 
+	public static function fieldRequired($fieldKey = NULL, $input =NULL) {
+		$fieldsCorrect = array();
+		if(is_array($fieldKey)) {
+			foreach ($fieldKey as $key => $value) {
+				if(isset($input[$key])) {
+					if(empty($input[$key])) { $fieldsCorrect[$key] = "Este campo es obligatorio"; }
+				}
+			}
+		}
+		return $fieldsCorrect;
+	}
+
 	public static function validateRequest($ruleset ,$closure = '',$lang = 'PE')
 	{
 		$validador = new ValidatorRequest();
@@ -172,7 +184,7 @@ class Request
 	public static function server($key='')
 	{
 		global $is_headers_request;
-		return (isset($is_headers_request[$key])?XSS::escape($is_headers_request[$key]):'');
+		return (isset($is_headers_request[$key])?$is_headers_request[$key]:$is_headers_request);
 	}
 
 	public static function get($key='')

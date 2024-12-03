@@ -96,7 +96,6 @@ class Runner
     	$strRender = $this->initPath. DS . ucwords($view);
 		
 		$strRender = str_replace($this->filtersReplace, "", $strRender);
-		
 		$this->metodrender($strRender);
     }
 
@@ -202,10 +201,11 @@ class Runner
 	protected function metodrender($class = '')
 	{
 		$class = str_replace("/", "\\", $class);
-
+		
 		if(class_exists($class))
 		{
 			$cls = new $class();
+			
 			if(method_exists($cls, "render"))
 			{
 				$cls->render();
@@ -217,8 +217,28 @@ class Runner
 		}
 		else
 		{
-			$this->loadError();
+			
+			$tclass = $this->deleteLastWord($class)."\\Main";
+			if(class_exists($tclass)) {
+				$cls = new $tclass();
+				
+				if(method_exists($cls, "render")) {
+					$cls->render();
+				} else {
+					$this->loadError();
+				}
+			} else {
+				$this->loadError();
+			}
 		}
+	}
+
+	function deleteLastWord($ruta) {
+		$ultimaBarra = strrpos($ruta, '\\');
+		if ($ultimaBarra !== false) {
+			return substr($ruta, 0, $ultimaBarra);
+		}
+		return $ruta;
 	}
 
 
