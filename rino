@@ -1,0 +1,76 @@
+#!/usr/bin/env php
+<?php
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$command = $argv[1] ?? null;
+$eventType = $argv[2] ?? null;
+$moduleName = $argv[3] ?? null;
+
+if($command === "install" && $eventType === "vendor") {
+    installVendor();
+}
+else if ($command === "install" && $eventType === "module" && $moduleName) {
+    installModule($moduleName);
+} else {
+    echo "Comando no encontrado: rino install [nombre-del-modulo]\n";
+}
+
+
+function installModule($moduleName)
+{
+    $repoUrl = "https://github.com/lvillanera/rino-modules.git";
+    $modulesDirectory = __DIR__ . "/app";
+    
+    if (!is_dir($modulesDirectory)) {
+        mkdir($modulesDirectory, 0777, true);
+    }
+
+    $tempClonePath = __DIR__ . "/temp-rino-modules";
+    $modulePath = "{$modulesDirectory}/{$moduleName}";
+
+    echo "- Descargando módulo {$moduleName}...\n";
+
+    exec("git clone --depth=1 {$repoUrl} {$tempClonePath}");
+
+    if (!is_dir("{$tempClonePath}/{$moduleName}")) {
+        echo "- El módulo {$moduleName} no existe en el repositorio.\n";
+        exec("rm -rf {$tempClonePath}");
+        return;
+    }
+
+    rename("{$tempClonePath}/{$moduleName}", $modulePath);
+    exec("rm -rf {$tempClonePath}");
+
+    echo "✅ Módulo {$moduleName} instalado correctamente en {$modulePath}.\n";
+}
+
+
+function installVendor() {
+    $repoUrl = "https://github.com/lvillanera/rino-modules.git";
+    $modulesDirectory = __DIR__;
+    
+    if (!is_dir($modulesDirectory)) {
+        mkdir($modulesDirectory, 0777, true);
+    }
+
+    $moduleName = "vendor";
+    $tempClonePath = __DIR__ . "/temp-rino-modules";
+    $modulePath = "{$modulesDirectory}/{$moduleName}";
+
+    echo "- Descargando módulo {$moduleName}...\n";
+
+    exec("git clone --depth=1 {$repoUrl} {$tempClonePath}");
+
+    if (!is_dir("{$tempClonePath}/{$moduleName}")) {
+        echo "- El módulo {$moduleName} no existe en el repositorio.\n";
+        exec("rm -rf {$tempClonePath}");
+        return;
+    }
+
+    rename("{$tempClonePath}/{$moduleName}", $modulePath);
+    exec("rm -rf {$tempClonePath}");
+
+    echo "✅ Vendor instalado correctamente .\n";
+
+}

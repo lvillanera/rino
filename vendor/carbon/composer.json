@@ -1,0 +1,25 @@
+{
+    "name": "Carbon",
+    "description": "Rino Framework package carbon",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Lenin Larry",
+            "email": "leninlarry96@gmail.com"
+        }
+    ],
+    "keywords": [
+        "Carbon"
+    ],
+    "autoload": {
+        "files": [
+            "vendor/carbon/symfony/polyfill-mbstring/bootstrap.php"
+        ],
+        "psr-4": {
+            "Symfony\\Polyfill\\Mbstring\\":"symfony/polyfill-mbstring/",
+            "Symfony\\Contracts\\":"symfony/contracts/",
+            "Symfony\\Component\\Translation\\":"symfony/translation/",
+            "Carbon\\":"nesbot/carbon/src/Carbon/"
+        }
+    }
+}

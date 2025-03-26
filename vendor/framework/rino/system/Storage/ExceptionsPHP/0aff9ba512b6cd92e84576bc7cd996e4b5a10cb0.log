@@ -1,0 +1,17 @@
+[Date: 2019-06-11 14:05:49][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:06:21][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:06:31][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:06:33][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:06:40][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:07:13][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:07:29][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:08:00][Fatal error code=0. in file : C:\xampp\htdocs\newrino\vendor\framework\rino\system\Libraries\Encryption\PublicKey.php, in 55]:openssl_pkey_get_details() expects parameter 1 to be resource, boolean given	
+[Date: 2019-06-11 14:31:04][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:Undefined constant 'Rino\Core\Headers'	
+[Date: 2019-06-11 14:31:26][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:Undefined constant 'Rino\Core\Headers\Headers'	
+[Date: 2019-06-11 14:31:34][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:Class 'Rino\Core\Headers\Headers' not found	
+[Date: 2019-06-11 14:58:14][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:syntax error, unexpected 'echo' (T_ECHO)	
+[Date: 2019-06-11 15:41:08][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:syntax error, unexpected 'echo' (T_ECHO)	
+[Date: 2019-06-11 15:42:43][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:syntax error, unexpected 'echo' (T_ECHO)	
+[Date: 2019-06-11 15:47:11][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:syntax error, unexpected 'echo' (T_ECHO)	
+[Date: 2019-06-11 15:49:51][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:syntax error, unexpected 'echo' (T_ECHO)	
+[Date: 2019-06-11 15:52:23][Fatal error code=0. in file : C:\xampp\htdocs\newrino\app\Main\Fe\Main.php, in 14]:syntax error, unexpected 'echo' (T_ECHO)	
