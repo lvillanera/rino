@@ -55,3 +55,19 @@ Framework para desarrollo de aplicaciones en PHP
 <strong>Importante: Al instalar paquetes con composer</strong>
 <p>El archivo Runner.php se dara de baja lo cual genera conflicto para correr la aplicación.<br> 
 por lo cual hay que sacar un backup primero de este archivo y luego de terminar la instalación guardar nuevamente en vendor/phroute/src/Runner.php</p>
+
+<strong>Para instalar paquetes de rino, ejecutar en la terminal: sudo mv rino /usr/local/bin/
+<br> luego ejecutar la descarga de los paquetes propios ejemplo: rino install auth-module</strong>
+
+luego posicionarse en la raiz del proyecto
+y agregar en las variables globales
+------------------------------------------------------------------------------------
+#RINO
+alias rino='/Users/leninvillanera/Documents/rino/rino/rino'
+
+y luego ejecutar: chmod +x /Users/leninvillanera/Documents/rino/rino
+------------------------------------------------------------------------------------
+
+
+rino make:controller UserController
+rino make:model User

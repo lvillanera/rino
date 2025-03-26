@@ -1,5 +1,4 @@
-<?php 
-namespace Phroute\Phroute;
+<?php namespace Phroute\Phroute;
 
 class Route {
 

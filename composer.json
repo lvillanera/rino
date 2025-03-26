@@ -4,7 +4,8 @@
     "type": "project",
     "version":"1.0",
     "require": {
-        "phroute/phroute": "^2.1"
+        "phroute/phroute": "^2.1",
+        "phpseclib/phpseclib": "^3.0"
     },
     "keywords": [
         "framework",
@@ -20,24 +21,13 @@
         "files": [
             "src/Helpers/globals.php",
             "config/constants.php",
-            "vendor/ralouphie/getallheaders/src/getallheaders.php",
-            "vendor/guzzlehttp/promises/src/functions_include.php",
-            "vendor/guzzlehttp/psr7/src/functions_include.php",
-            "vendor/guzzlehttp/guzzle/src/functions_include.php",
             "vendor/carbon/symfony/polyfill-mbstring/bootstrap.php"
         ],
         "psr-4": {
             "App\\": "app/",
             "Rino\\":"vendor/framework/rino/system/",
-            "GuzzleHttp\\":"vendor/guzzlehttp/guzzle/src/",
-            "GuzzleHttp\\Promise\\":"vendor/guzzlehttp/promises/src/",
-            "GuzzleHttp\\Psr7\\":"vendor/guzzlehttp/psr7/src/",
             "Psr\\Http\\Message\\":"vendor/psr/http-message/src/",
             "Symfony\\Component\\EventDispatcher\\":"vendor/symfony/event-dispatcher/",
-            "Symfony\\Polyfill\\Mbstring\\":"vendor/carbon/symfony/polyfill-mbstring/",
-            "Symfony\\Contracts\\":"vendor/carbon/symfony/contracts/",
-            "Symfony\\Component\\Translation\\":"vendor/carbon/symfony/translation/",
-            "Carbon\\":"vendor/carbon/nesbot/carbon/src/Carbon/",
             "Illuminate\\Support\\":"vendor/illuminate/support/",
             "Illuminate\\Database\\":"vendor/illuminate/database/",
             "Illuminate\\Container\\":"vendor/illuminate/container/",

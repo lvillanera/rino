@@ -7,21 +7,19 @@ namespace Composer\Autoload;
 class ComposerStaticInitf782b01385a874a0320abafda2950398
 {
     public static $files = array (
+        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         '5e7440e64b610c225f7477ebde78d70f' => __DIR__ . '/../..' . '/src/Helpers/globals.php',
         'a2235ae6dc96709034642d92adf498bd' => __DIR__ . '/../..' . '/config/constants.php',
-        '14d6c865296a71bcd8f3c641e0ec04a2' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
-        '25c15738ee1c836ecfa59a0af00cfe2b' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
-        '744eb703861010dc4d3020285f124095' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '3fe603c11833352949befa59ff8a8442' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '321f2449641f389e8c4601a1e13fd3fe' => __DIR__ . '/..' . '/carbon/symfony/polyfill-mbstring/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'phpseclib3\\' => 11,
+        ),
         'S' => 
         array (
-            'Symfony\\Polyfill\\Mbstring\\' => 26,
-            'Symfony\\Contracts\\' => 18,
-            'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\EventDispatcher\\' => 34,
         ),
         'R' => 
@@ -32,6 +30,7 @@ class ComposerStaticInitf782b01385a874a0320abafda2950398
         array (
             'Psr\\Http\\Message\\' => 17,
             'Phroute\\Phroute\\' => 16,
+            'ParagonIE\\ConstantTime\\' => 23,
         ),
         'I' => 
         array (
@@ -40,16 +39,6 @@ class ComposerStaticInitf782b01385a874a0320abafda2950398
             'Illuminate\\Contracts\\' => 21,
             'Illuminate\\Container\\' => 21,
         ),
-        'G' => 
-        array (
-            'GuzzleHttp\\Psr7\\' => 16,
-            'GuzzleHttp\\Promise\\' => 19,
-            'GuzzleHttp\\' => 11,
-        ),
-        'C' => 
-        array (
-            'Carbon\\' => 7,
-        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -57,17 +46,9 @@ class ComposerStaticInitf782b01385a874a0320abafda2950398
     );
 
     public static $prefixDirsPsr4 = array (
-        'Symfony\\Polyfill\\Mbstring\\' => 
+        'phpseclib3\\' => 
         array (
-            0 => __DIR__ . '/..' . '/carbon/symfony/polyfill-mbstring',
-        ),
-        'Symfony\\Contracts\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/carbon/symfony/contracts',
-        ),
-        'Symfony\\Component\\Translation\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/carbon/symfony/translation',
+            0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
         ),
         'Symfony\\Component\\EventDispatcher\\' => 
         array (
@@ -85,6 +66,10 @@ class ComposerStaticInitf782b01385a874a0320abafda2950398
         array (
             0 => __DIR__ . '/..' . '/phroute/phroute/src/Phroute',
         ),
+        'ParagonIE\\ConstantTime\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/paragonie/constant_time_encoding/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/illuminate/support',
@@ -101,26 +86,14 @@ class ComposerStaticInitf782b01385a874a0320abafda2950398
         array (
             0 => __DIR__ . '/..' . '/illuminate/container',
         ),
-        'GuzzleHttp\\Psr7\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
-        ),
-        'GuzzleHttp\\Promise\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
-        ),
-        'GuzzleHttp\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
-        ),
-        'Carbon\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/carbon/nesbot/carbon/src/Carbon',
-        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
+    );
+
+    public static $classMap = array (
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -128,6 +101,7 @@ class ComposerStaticInitf782b01385a874a0320abafda2950398
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitf782b01385a874a0320abafda2950398::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitf782b01385a874a0320abafda2950398::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitf782b01385a874a0320abafda2950398::$classMap;
 
         }, null, ClassLoader::class);
     }

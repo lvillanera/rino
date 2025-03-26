@@ -15,7 +15,6 @@ class RouteCollector implements RouteDataProviderInterface {
      *
      */
     const DEFAULT_CONTROLLER_ROUTE = 'index';
-
     /**
      *
      */
@@ -28,24 +27,24 @@ class RouteCollector implements RouteDataProviderInterface {
     /**
      * @var array
      */
-    private $filters = array();
+    private $filters = [];
     /**
      * @var array
      */
-    private $staticRoutes = array();
+    private $staticRoutes = [];
     /**
      * @var array
      */
-    private $regexToRoutesMap = array();
+    private $regexToRoutesMap = [];
     /**
      * @var array
      */
-    private $reverse = array();
+    private $reverse = [];
 
     /**
      * @var array
      */
-    private $globalFilters = array();
+    private $globalFilters = [];
 
     /**
      * @var
@@ -74,9 +73,9 @@ class RouteCollector implements RouteDataProviderInterface {
      */
     public function route($name, array $args = null)
     {
-        $url = array();
+        $url = [];
 
-        $replacements = is_null($args) ? array() : array_values($args);
+        $replacements = is_null($args) ? [] : array_values($args);
 
         $variable = 0;
 
@@ -111,7 +110,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return $this
      */
-    public function addRoute($httpMethod, $route, $handler, array $filters = array()) {
+    public function addRoute($httpMethod, $route, $handler, array $filters = []) {
         
         if(is_array($route))
         {
@@ -189,7 +188,7 @@ class RouteCollector implements RouteDataProviderInterface {
 
         $oldGlobalPrefix = $this->globalRoutePrefix;
 
-        $this->globalFilters = array_merge_recursive($this->globalFilters, array_intersect_key($filters, array(Route::AFTER => 1, Route::BEFORE => 1)));
+        $this->globalFilters = array_merge_recursive($this->globalFilters, array_intersect_key($filters, [Route::AFTER => 1, Route::BEFORE => 1]));
 
         $newPrefix = isset($filters[Route::PREFIX]) ? $this->trim($filters[Route::PREFIX]) : null;
 
@@ -222,7 +221,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function get($route, $handler, array $filters = array())
+    public function get($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::GET, $route, $handler, $filters);
     }
@@ -233,7 +232,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function head($route, $handler, array $filters = array())
+    public function head($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::HEAD, $route, $handler, $filters);
     }
@@ -244,7 +243,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function post($route, $handler, array $filters = array())
+    public function post($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::POST, $route, $handler, $filters);
     }
@@ -255,7 +254,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function put($route, $handler, array $filters = array())
+    public function put($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::PUT, $route, $handler, $filters);
     }
@@ -266,7 +265,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function patch($route, $handler, array $filters = array())
+    public function patch($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::PATCH, $route, $handler, $filters);
     }
@@ -277,7 +276,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function delete($route, $handler, array $filters = array())
+    public function delete($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::DELETE, $route, $handler, $filters);
     }
@@ -288,7 +287,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function options($route, $handler, array $filters = array())
+    public function options($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::OPTIONS, $route, $handler, $filters);
     }
@@ -299,7 +298,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return RouteCollector
      */
-    public function any($route, $handler, array $filters = array())
+    public function any($route, $handler, array $filters = [])
     {
         return $this->addRoute(Route::ANY, $route, $handler, $filters);
     }
@@ -310,7 +309,7 @@ class RouteCollector implements RouteDataProviderInterface {
      * @param array $filters
      * @return $this
      */
-    public function controller($route, $classname, array $filters = array())
+    public function controller($route, $classname, array $filters = [])
     {
         $reflection = new ReflectionClass($classname);
 
@@ -330,10 +329,10 @@ class RouteCollector implements RouteDataProviderInterface {
 
                     if($methodName === self::DEFAULT_CONTROLLER_ROUTE)
                     {
-                        $this->addRoute($valid, $route . $params, array($classname, $method->name), $filters);
+                        $this->addRoute($valid, $route . $params, [$classname, $method->name], $filters);
                     }
 
-                    $this->addRoute($valid, $route . $sep . $methodName . $params, array()$classname, $method->name), $filters);
+                    $this->addRoute($valid, $route . $sep . $methodName . $params, [$classname, $method->name], $filters);
                     
                     break;
                 }
@@ -373,7 +372,7 @@ class RouteCollector implements RouteDataProviderInterface {
      */
     public function getValidMethods()
     {
-        return array(
+        return [
             Route::ANY,
             Route::GET,
             Route::POST,
@@ -382,7 +381,7 @@ class RouteCollector implements RouteDataProviderInterface {
             Route::DELETE,
             Route::HEAD,
             Route::OPTIONS,
-        );
+        ];
     }
 
     /**
@@ -392,7 +391,7 @@ class RouteCollector implements RouteDataProviderInterface {
     {
         if (empty($this->regexToRoutesMap))
         {
-            return new RouteDataArray($this->staticRoutes, array(), $this->filters);
+            return new RouteDataArray($this->staticRoutes, [], $this->filters);
         }
 
         return new RouteDataArray($this->staticRoutes, $this->generateVariableRouteData(), $this->filters);
@@ -404,7 +403,7 @@ class RouteCollector implements RouteDataProviderInterface {
      */
     private function trim($route)
     {
-        return trim($route, '/');
+        return trim($route ?: "", '/');
     }
 
     /**
@@ -414,7 +413,7 @@ class RouteCollector implements RouteDataProviderInterface {
     {
         $chunkSize = $this->computeChunkSize(count($this->regexToRoutesMap));
         $chunks = array_chunk($this->regexToRoutesMap, $chunkSize, true);
-        return array_map(array($this, 'processChunk'), $chunks);
+        return array_map([$this, 'processChunk'], $chunks);
     }
 
     /**
@@ -433,8 +432,8 @@ class RouteCollector implements RouteDataProviderInterface {
      */
     private function processChunk($regexToRoutesMap)
     {
-        $routeMap = array();
-        $regexes = array();
+        $routeMap = [];
+        $regexes = [];
         $numGroups = 0;
         foreach ($regexToRoutesMap as $regex => $routes) {
             $firstRoute = reset($routes);
