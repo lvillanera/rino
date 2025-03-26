@@ -4,19 +4,21 @@
 Framework para desarrollo de aplicaciones en PHP 
 
 
-
-- carpeta _cache donde rain tpl almacenara los archivos temporales que crea para procesar las plantillas
-- carpeta config aqui se crearan las configuraciones a la BD y definir constantes.
-- carpeta public donde se encuentran los archivos css,js, ademas de ya estar incluidos como boostrap y jquery entre otras librerias.
-- carpeta vendor donde se encuentran las configuraciones de la aplicación.
-- <b>carpeta app</b> la aplicacion principal para nuestro proyecto
-
+<h4>-- FRAMEWORK PARA DESARROLLOS DE PROYECTO PEQUEÑOS, MEDIANO, MEDIANO-AVANZADO</h4>
+- Carpeta _cache donde rain tpl almacenara los archivos temporales que crea para procesar las plantillas
+- Carpeta config aqui se crearan las configuraciones a la BD y definir constantes.
+- Carpeta public donde se encuentran los archivos css,js, ademas de ya estar incluidos como boostrap y jquery entre otras librerias.
+- Carpeta vendor donde se encuentran las configuraciones de la aplicación.
+- <b>Carpeta app</b> la aplicacion principal para nuestro proyecto
+- No contiene plataformas de despliegues
+- carpetas iniciales para manejar el back (https:midominio.com/admin) y front (https:midominio.com), estas url son configurables pueden encontrarse en la config/config.php como <strong>$ret["backend_url"] = 'admin';</strong>
+- carpeta inicial de desarrollo <strong>$ret["defaultmodule"] = 'main';</strong>
 
 <h4>Requerimientos para su instalacion</h4>
 
-<br><br><img src="http://opticanuevavision.pe/web/data/rino-flujo.png"><br><br>
+<br><br><img src="https://lvillanera.github.io/images/rino_logo.png"><br><br>
 
-- PHP >= 5.6
+- PHP >= 7.5
 - OpenSSL PHP Extension
 - PDO PHP Extension
 - Mbstring PHP Extension
@@ -25,7 +27,7 @@ Framework para desarrollo de aplicaciones en PHP
 - BCMath PHP Extensión
 
 <h3>Vulnerabilidades</h3>
-* Importante, si descubre alguna vulnerabilidad escribir a <a href="mailto:leninlarry96@gmail.com">leninlarry96@gmail.com</a>, gracias por su apoyo.
+* Importante, si descubre alguna vulnerabilidad escribir a <a href="mailto:leninlarry96@gmail.com">leninlarry96@gmail.com</a>, gracias por su apoyo ;)
 
 
 <h4>¿Qué Puedo hacer Con Rino?</h4>
@@ -35,9 +37,21 @@ Framework para desarrollo de aplicaciones en PHP
   <li>Helpers (string,file,globals,html)</li>
   <li>Sesiones</li>
   <li>Clase request</li>
-  <li>PDO Database</li>
+  <li>PDO Database gestion propia de Rino</li>
   <li>Upload</li>
   <li>Headers</li>
   <li>Tokens</li>
+  <li>Conexión con clases de Symfony</li>
+  <li>Trabajar calendarios con Carbon de Laravel</li>
+  <li>Inyectar dependencias a otros componentes con Events</li>
+  <li>Usar encriptaciones RSA, AES, SHA256</li>
+  <li>Personalizar código</li>
+  <li>Configurar url para sistemas y landing al mismo tiempo</li>
+  <li>Usar Illuminate para bases de datos</li>
   <li>Vista para Diseñadores con RainTPL</li>
+  <li>Detección de log o eventos propagados en el sistema (log_error)</li>
 </ul>
+<br>
+<strong>Importante: Al instalar paquetes con composer</strong>
+<p>El archivo Runner.php se dara de baja lo cual genera conflicto para correr la aplicación.<br> 
+por lo cual hay que sacar un backup primero de este archivo y luego de terminar la instalación guardar nuevamente en vendor/phroute/src/Runner.php</p>
